@@ -240,9 +240,9 @@
     <div class="row">
         <div class="col-lg-6">
           <h3 class="column-title">Who We Are</h3>
-          <p>when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
-          <blockquote><p>Semporibus autem quibusdam et aut officiis debitis aut rerum est aut optio cumque nihil necessitatibus autemn ec tincidunt nunc posuere ut</p></blockquote>
-          <p>He lay on his armour-like  back, and if he lifted. ultrices ultrices sapien, nec tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing.</p>
+          <p>We are a founder-led, technology-driven construction company redefining how remodeling, renovation, and home construction projects are managed and executed.</p>
+          <blockquote><p>From feasibility to final handover, we provide full transparency and control through our smart construction software, personalized supervision, and cloud collaboration tools.</p></blockquote>
+          <p>Whether you're remodeling a single room or building your dream home from the ground up, our platform ensures real-time tracking, quality control — delivering professional-grade results with a personal touch.</p>
 
         </div><!-- Col end -->
 
@@ -345,7 +345,7 @@
     <div class="row text-center">
         <div class="col-lg-12">
           <h2 class="section-title">Quality Service</h2>
-          <h3 class="section-sub-title">Professional Team</h3>
+          <h3 class="section-sub-title">The Faces Behind the Vision</h3>
         </div>
     </div><!--/ Title row end -->
 
@@ -570,7 +570,28 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
+
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('map').setView([19.294066, 72.860549], 15); // Your coordinates
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([19.294066, 72.860549])
+        .addTo(map)
+        .bindPopup('<b>R K Infra Projects</b>')
+        .openPopup();
+    });
+  </script>
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 

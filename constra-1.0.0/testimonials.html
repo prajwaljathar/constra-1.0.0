@@ -248,14 +248,14 @@
          <div class="col-lg-4 col-md-6">
             <div class="quote-item quote-border mt-5">
                <div class="quote-text-border">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                The renovation team transformed our old flat into a stylish and functional space. Their attention to detail and timely updates were impressive.
                </div>
 
                <div class="quote-item-footer">
                   <img loading="lazy" class="testimonial-thumb" src="images/clients/testimonial1.png" alt="testimonial">
                   <div class="quote-item-info">
-                     <h3 class="quote-author">Gabriel Denis</h3>
-                     <span class="quote-subtext">Chairman, Okt Industries</span>
+                     <h3 class="quote-author">Ritika Sharma</h3>
+                     <span class="quote-subtext">Homeowner, Mumbai</span>
                   </div>
                </div>
             </div><!-- Quote item end -->
@@ -264,14 +264,14 @@
          <div class="col-lg-4 col-md-6">
             <div class="quote-item quote-border mt-5">
                <div class="quote-text-border">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                From design to delivery, their home construction process was smooth and stress-free. The real-time updates kept us informed at every stage.
                </div>
 
                <div class="quote-item-footer">
                   <img loading="lazy" class="testimonial-thumb" src="images/clients/testimonial2.png" alt="testimonial">
                   <div class="quote-item-info">
-                     <h3 class="quote-author">Weldon Cash</h3>
-                     <span class="quote-subtext">CEO, First Choice Group</span>
+                     <h3 class="quote-author">Amit Verma</h3>
+                     <span class="quote-subtext">New Homeowner, Pune</span>
                   </div>
                </div>
             </div><!-- Quote item end -->
@@ -280,14 +280,14 @@
          <div class="col-lg-4 col-md-6">
             <div class="quote-item quote-border mt-5">
                <div class="quote-text-border">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                Their team worked with our budget and delivered an elegant interior design. The renovation turned out just the way we imagined, with great attention to detail.
                </div>
 
                <div class="quote-item-footer">
                   <img loading="lazy" class="testimonial-thumb" src="images/clients/testimonial3.png" alt="testimonial">
                   <div class="quote-item-info">
-                     <h3 class="quote-author">Hyram Izzy</h3>
-                     <span class="quote-subtext">Director, AKT Group</span>
+                     <h3 class="quote-author">Neha Kapoor</h3>
+                     <span class="quote-subtext">Director, Skylark Interiors</span>
                   </div>
                </div>
             </div><!-- Quote item end -->
@@ -395,7 +395,28 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
+
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('map').setView([19.294066, 72.860549], 15); // Your coordinates
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([19.294066, 72.860549])
+        .addTo(map)
+        .bindPopup('<b>R K Infra Projects</b>')
+        .openPopup();
+    });
+  </script>
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 

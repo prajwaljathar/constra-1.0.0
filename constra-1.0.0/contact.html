@@ -287,9 +287,12 @@
 
     <div class="gap-60"></div>
 
-    <div class="google-map">
+    <!-- <div class="google-map">
       <div id="map" class="map" data-latitude="19.294066" data-longitude="72.860549" data-marker="images/marker.png" data-marker-name="R K Infra Projects"></div>
-    </div>
+    </div> -->
+
+    <!-- Map Container -->
+    <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
 
     <div class="gap-40"></div>
 
@@ -437,7 +440,28 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
+
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('map').setView([19.294066, 72.860549], 15); // Your coordinates
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([19.294066, 72.860549])
+        .addTo(map)
+        .bindPopup('<b>R K Infra Projects</b>')
+        .openPopup();
+    });
+  </script>
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 

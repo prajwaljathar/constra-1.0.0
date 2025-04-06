@@ -310,10 +310,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <div class="copyright-info">
-              <span>Copyright &copy; <script>
-                  document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="https://themefisher.com">Themefisher</a></span>
+            <div class="copyright-info text-center">
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved. &copy; R K Infra Projects 2017</span>
             </div>
           </div>
 
@@ -358,7 +356,30 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
+
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('map').setView([19.294066, 72.860549], 15); // Your coordinates
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([19.294066, 72.860549])
+        .addTo(map)
+        .bindPopup('<b>R K Infra Projects</b>')
+        .openPopup();
+    });
+  </script>
+
+
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 
