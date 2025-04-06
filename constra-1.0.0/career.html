@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <title>Careers - R K Infra Projects</title>
+
+  <!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Construction Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <!-- Favicon
+================================================== -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- CSS
+================================================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+  <!-- Animation -->
+  <link rel="stylesheet" href="plugins/animate-css/animate.css">
+  <!-- slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+  <!-- Colorbox -->
+  <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
+  <!-- Template styles-->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('job-application-form');
+      if (form) {
+        form.onsubmit = function(e) {
+          e.preventDefault();
+          
+          // Create custom notification
+          var notification = document.createElement('div');
+          notification.className = 'custom-alert';
+          notification.innerHTML = `
+            <div class="alert-content">
+              <i class="fas fa-check-circle"></i>
+              <h4>Application Submitted!</h4>
+              <p>Thank you for your application. Our HR team will review your credentials and contact you soon.</p>
+              <button id="closeAlert" class="btn btn-primary">Close</button>
+            </div>
+          `;
+          
+          // Style the notification
+          var styles = `
+            .custom-alert {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: rgba(0,0,0,0.7);
+              z-index: 9999;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .alert-content {
+              background-color: white;
+              border-radius: 5px;
+              padding: 30px;
+              max-width: 500px;
+              text-align: center;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            .alert-content i {
+              color: #ffb600;
+              font-size: 48px;
+              margin-bottom: 20px;
+            }
+            .alert-content h4 {
+              color: #0e2b5c;
+              margin-bottom: 15px;
+            }
+            .alert-content p {
+              margin-bottom: 20px;
+            }
+          `;
+          
+          // Add styles to document
+          var styleElem = document.createElement('style');
+          styleElem.textContent = styles;
+          document.head.appendChild(styleElem);
+          
+          // Add notification to body
+          document.body.appendChild(notification);
+          
+          // Reset form
+          form.reset();
+          document.querySelector('label.custom-file-label').textContent = 'Choose file (PDF, DOC, DOCX)';
+          
+          // Add close button functionality
+          document.getElementById('closeAlert').addEventListener('click', function() {
+            document.body.removeChild(notification);
+            // Scroll back to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          
+          return false;
+        };
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fix file input display
+      var resumeInput = document.getElementById('resume');
+      if (resumeInput) {
+        resumeInput.addEventListener('change', function(e) {
+          try {
+            if (e.target.files && e.target.files.length > 0) {
+              const fileName = e.target.files[0].name;
+              const labels = document.querySelectorAll('.custom-file-label');
+              // Find the correct label (the one next to this input)
+              for (let i = 0; i < labels.length; i++) {
+                if (labels[i].htmlFor === 'resume' || labels[i].getAttribute('for') === 'resume') {
+                  labels[i].textContent = fileName;
+                  break;
+                }
+              }
+              // Fallback if the above doesn't work
+              if (this.nextElementSibling && this.nextElementSibling.classList.contains('custom-file-label')) {
+                this.nextElementSibling.textContent = fileName;
+              }
+            }
+          } catch (error) {
+            console.error('Error updating file label:', error);
+          }
+        });
+      }
+      
+      // Form submission handler
+      var form = document.getElementById('job-application-form');
+      if (form) {
+        form.onsubmit = function(e) {
+          e.preventDefault();
+          
+          // Create custom notification
+          var notification = document.createElement('div');
+          notification.className = 'custom-alert';
+          notification.innerHTML = `
+            <div class="alert-content">
+              <i class="fas fa-check-circle"></i>
+              <h4>Application Submitted!</h4>
+              <p>Thank you for your application. Our HR team will review your credentials and contact you soon.</p>
+              <button id="closeAlert" class="btn btn-primary">Close</button>
+            </div>
+          `;
+          
+          // Style the notification
+          var styles = `
+            .custom-alert {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: rgba(0,0,0,0.7);
+              z-index: 9999;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .alert-content {
+              background-color: white;
+              border-radius: 5px;
+              padding: 30px;
+              max-width: 500px;
+              text-align: center;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            .alert-content i {
+              color: #ffb600;
+              font-size: 48px;
+              margin-bottom: 20px;
+            }
+            .alert-content h4 {
+              color: #0e2b5c;
+              margin-bottom: 15px;
+            }
+            .alert-content p {
+              margin-bottom: 20px;
+            }
+          `;
+          
+          // Add styles to document
+          var styleElem = document.createElement('style');
+          styleElem.textContent = styles;
+          document.head.appendChild(styleElem);
+          
+          // Add notification to body
+          document.body.appendChild(notification);
+          
+          // Reset form
+          form.reset();
+          
+          // Reset file input label - more robust approach
+          var fileLabels = document.querySelectorAll('.custom-file-label');
+          for (let i = 0; i < fileLabels.length; i++) {
+            if (fileLabels[i].htmlFor === 'resume' || fileLabels[i].getAttribute('for') === 'resume') {
+              fileLabels[i].textContent = 'Choose file (PDF, DOC, DOCX)';
+            }
+          }
+          
+          // Add close button functionality
+          document.getElementById('closeAlert').addEventListener('click', function() {
+            document.body.removeChild(notification);
+            // Scroll back to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          
+          return false;
+        };
+      }
+    });
+  </script>
+  <div class="body-inner">
+
+    <div id="top-bar" class="top-bar">
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-md-8">
+                <ul class="top-info text-center text-md-left">
+                    <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">104 Om Shree Prathamesh Chs Ltd 60 Feet Road,opp Ganesh Mandir Near Jcc Classes Bhyander West Thane 401101</p>
+                    </li>
+                </ul>
+              </div>
+              <!--/ Top info end -->
+  
+              <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+                <ul class="list-unstyled">
+                    <li>
+                      <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                          <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                      </a>
+                      <a title="Twitter" href="https://twitter.com/themefisher.com">
+                          <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                      </a>
+                      <a title="Instagram" href="https://instagram.com/themefisher.com">
+                          <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                      </a>
+                      <a title="Linkdin" href="https://github.com/themefisher.com">
+                          <span class="social-icon"><i class="fab fa-github"></i></span>
+                      </a>
+                    </li>
+                </ul>
+              </div>
+              <!--/ Top social end -->
+          </div>
+          <!--/ Content row end -->
+        </div>
+        <!--/ Container end -->
+    </div>
+    <!--/ Topbar end -->
+<!-- Header start -->
+<header id="header" class="header-one">
+  <div class="bg-white">
+    <div class="container">
+      <div class="logo-area">
+          <div class="row align-items-center">
+            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                <a class="d-block" href="index.html">
+                  <img loading="lazy" src="images/logo.png" alt="R K Infra Projects" style="width: 120px; height: auto;">
+                </a>
+            </div><!-- logo end -->
+  
+            <div class="col-lg-9 header-right">
+                <ul class="top-info-box">
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Call Us</p>
+                          <p class="info-box-subtitle">(+91) 9930930442</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Email Us</p>
+                          <p class="info-box-subtitle">rkinfraprojects2017@gmail.com</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="last">
+                    <div class="info-box last">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Gst No</p>
+                          <p class="info-box-subtitle">27BSYPS0417C1ZI</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="header-get-a-quote">
+                    <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                  </li>
+                </ul><!-- Ul end -->
+            </div><!-- header right end -->
+          </div><!-- logo area end -->
+  
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div>
+
+  <div class="site-navigation">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                      <li class="nav-item dropdown">
+                          <a href="index.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="index.html">Home One</a></li>
+                            <!-- <li><a href="index-2.html">Home Two</a></li> -->
+                          </ul>
+                      </li>
+
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="team.html">Our People</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="faq.html">Faq</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="projects.html">Projects All</a></li>
+                            <li><a href="projects-single.html">Projects Single</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="services.html">Services All</a></li>
+                            <li><a href="service-single.html">Services Single</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                      <li class="nav-item active"><a class="nav-link" href="career.html">Career</a></li>
+                    </ul>
+                </div>
+              </nav>
+          </div>
+          <!--/ Col end -->
+        </div>
+        <!--/ Row end -->
+
+        <div class="nav-search">
+          <!-- <span id="search"><i class="fa fa-search"></i></span> -->
+        </div><!-- Search end -->
+
+        <div class="search-block" style="display: none;">
+          <label for="search-field" class="w-100 mb-0">
+            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
+          </label>
+          <span class="search-close">&times;</span>
+        </div><!-- Site search end -->
+    </div>
+    <!--/ Container end -->
+
+  </div>
+  <!--/ Navigation end -->
+</header>
+<!--/ Header end -->
+<div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
+  <div class="banner-text">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <div class="banner-heading">
+                <h1 class="banner-title">Careers</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item"><a href="#">Company</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Careers</li>
+                    </ol>
+                </nav>
+              </div>
+          </div><!-- Col end -->
+        </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div><!-- Banner text end -->
+</div><!-- Banner area end --> 
+
+<section id="main-container" class="main-container">
+  <div class="container">
+
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="section-title">Join Our Team</h2>
+        <h3 class="section-sub-title">Current Openings</h3>
+      </div>
+    </div>
+    <!--/ Title row end -->
+
+    <div class="row">
+      <!-- Job Opening 1 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="ts-service-box">
+          <!-- <div class="ts-service-image-wrapper">
+            <img loading="lazy" class="w-100" src="images/services/site-engineer.jpg" alt="Site Engineer">
+          </div> -->
+          <div class="d-flex">
+            <div class="ts-service-box-img">
+              <img loading="lazy" src="images/icon-image/service-icon1.png" alt="Site Engineer Icon">
+            </div>
+            <div class="ts-service-info">
+              <h3 class="service-box-title"><a href="#site-engineer">Site Engineer</a></h3>
+              <p>Join our team as a Site Engineer to oversee construction activities, ensure quality control, and coordinate with subcontractors on various projects.</p>
+              <a class="learn-more d-inline-block" href="#site-engineer" aria-label="Apply Now"><i class="fa fa-caret-right"></i> Apply Now</a>
+            </div>
+          </div>
+        </div><!-- Service end -->
+      </div><!-- Col end -->
+
+      <!-- Job Opening 2 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="ts-service-box">
+          <!-- <div class="ts-service-image-wrapper">
+            <img loading="lazy" class="w-100" src="images/services/structural-engineer.jpg" alt="Structural Engineer">
+          </div> -->
+          <div class="d-flex">
+            <div class="ts-service-box-img">
+              <img loading="lazy" src="images/icon-image/service-icon2.png" alt="Structural Engineer Icon">
+            </div>
+            <div class="ts-service-info">
+              <h3 class="service-box-title"><a href="#structural-engineer">Structural Engineer</a></h3>
+              <p>Design and analyze structural systems for buildings and infrastructure projects, ensuring safety, efficiency, and code compliance.</p>
+              <a class="learn-more d-inline-block" href="#structural-engineer" aria-label="Apply Now"><i class="fa fa-caret-right"></i> Apply Now</a>
+            </div>
+          </div>
+        </div><!-- Service end -->
+      </div><!-- Col end -->
+
+      <!-- Job Opening 3 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="ts-service-box">
+          <!-- <div class="ts-service-image-wrapper">
+            <img loading="lazy" class="w-100" src="images/services/software-engineer.jpg" alt="Software Engineer">
+          </div> -->
+          <div class="d-flex">
+            <div class="ts-service-box-img">
+              <img loading="lazy" src="images/icon-image/service-icon3.png" alt="Software Engineer Icon">
+            </div>
+            <div class="ts-service-info">
+              <h3 class="service-box-title"><a href="#software-engineer">Software Engineer</a></h3>
+              <p>Develop and maintain Java microservices architecture for our construction management systems and digital transformation initiatives.</p>
+              <a class="learn-more d-inline-block" href="#software-engineer" aria-label="Apply Now"><i class="fa fa-caret-right"></i> Apply Now</a>
+            </div>
+          </div>
+        </div><!-- Service end -->
+      </div><!-- Col end -->
+    </div><!-- Content row end -->
+
+    <div class="gap-60"></div>
+
+    <!-- Site Engineer Position Details -->
+    <div class="row" id="site-engineer">
+      <div class="col-lg-12">
+        <div class="accordion accordion-group" id="site-engineer-accordion">
+          <div class="card">
+            <div class="card-header p-0 bg-transparent" id="site-engineer-heading">
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#site-engineer-details">
+                  Site Engineer
+                </button>
+              </h2>
+            </div>
+      
+            <div id="site-engineer-details" class="collapse show" data-parent="#site-engineer-accordion">
+              <div class="card-body">
+                <h3>Job Description</h3>
+                <p>We are seeking an experienced Site Engineer to join our team and oversee construction activities at various project sites.</p>
+      
+                <h4>Responsibilities:</h4>
+                <ul>
+                  <li>Supervise and coordinate construction activities at project sites</li>
+                  <li>Ensure compliance with project specifications, design drawings, and safety regulations</li>
+                  <li>Coordinate with subcontractors, vendors, and project stakeholders</li>
+                  <li>Manage resources, materials, and equipment at the site</li>
+                  <li>Prepare daily progress reports and maintain site documentation</li>
+                  <li>Conduct quality checks and implement quality control measures</li>
+                  <li>Address and resolve site-related issues promptly</li>
+                </ul>
+      
+                <h4>Requirements:</h4>
+                <ul>
+                  <li>Bachelor's degree in Civil Engineering or equivalent</li>
+                  <li>3+ years of experience in construction site management</li>
+                  <li>Proficiency in reading and interpreting construction drawings</li>
+                  <li>Knowledge of construction methods, materials, and quality standards</li>
+                  <li>Strong problem-solving and communication skills</li>
+                  <li>Ability to work in a team and manage multiple priorities</li>
+                </ul>
+                
+                <div class="text-right mt-4">
+                  <a href="#application-form" class="btn btn-primary">Apply Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Structural Engineer Position Details -->
+    <div class="row mt-4" id="structural-engineer">
+      <div class="col-lg-12">
+        <div class="accordion accordion-group" id="structural-engineer-accordion">
+          <div class="card">
+            <div class="card-header p-0 bg-transparent" id="structural-engineer-heading">
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#structural-engineer-details">
+                  Structural Engineer
+                </button>
+              </h2>
+            </div>
+      
+            <div id="structural-engineer-details" class="collapse" data-parent="#structural-engineer-accordion">
+              <div class="card-body">
+                <h3>Job Description</h3>
+                <p>We are looking for a skilled Structural Engineer to design and analyze structural systems for our building and infrastructure projects.</p>
+      
+                <h4>Responsibilities:</h4>
+                <ul>
+                  <li>Design structural elements and systems for buildings and infrastructure projects</li>
+                  <li>Perform structural analysis using advanced software tools</li>
+                  <li>Ensure designs comply with building codes, standards, and specifications</li>
+                  <li>Prepare structural drawings and calculation reports</li>
+                  <li>Conduct site visits to assess structural conditions and requirements</li>
+                  <li>Collaborate with architects, MEP engineers, and other design professionals</li>
+                  <li>Review shop drawings and respond to RFIs during construction</li>
+                </ul>
+      
+                <h4>Requirements:</h4>
+                <ul>
+                  <li>Bachelor's or Master's degree in Structural Engineering</li>
+                  <li>5+ years of experience in structural design for buildings</li>
+                  <li>Proficiency in structural analysis software (ETABS, STAAD.Pro, etc.)</li>
+                  <li>Knowledge of concrete, steel, and timber structural design</li>
+                  <li>Strong analytical and problem-solving skills</li>
+                  <li>Excellent communication and teamwork abilities</li>
+                  <li>Professional engineering license preferred</li>
+                </ul>
+                
+                <div class="text-right mt-4">
+                  <a href="#application-form" class="btn btn-primary">Apply Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Software Engineer Position Details -->
+    <div class="row mt-4" id="software-engineer">
+      <div class="col-lg-12">
+        <div class="accordion accordion-group" id="software-engineer-accordion">
+          <div class="card">
+            <div class="card-header p-0 bg-transparent" id="software-engineer-heading">
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#software-engineer-details">
+                  Software Engineer (Java Microservices)
+                </button>
+              </h2>
+            </div>
+      
+            <div id="software-engineer-details" class="collapse" data-parent="#software-engineer-accordion">
+              <div class="card-body">
+                <h3>Job Description</h3>
+                <p>We're seeking a talented Software Engineer with expertise in Java microservices to help develop and maintain our construction management systems.</p>
+      
+                <h4>Responsibilities:</h4>
+                <ul>
+                  <li>Design, develop, and maintain Java-based microservices architecture</li>
+                  <li>Implement RESTful APIs and ensure proper integration between services</li>
+                  <li>Develop and maintain cloud-native applications using Spring Boot, Spring Cloud</li>
+                  <li>Optimize application performance and ensure scalability</li>
+                  <li>Implement automated testing and continuous integration/deployment</li>
+                  <li>Collaborate with cross-functional teams to deliver software solutions</li>
+                  <li>Troubleshoot and resolve issues in production environments</li>
+                </ul>
+      
+                <h4>Requirements:</h4>
+                <ul>
+                  <li>Bachelor's degree in Computer Science or equivalent</li>
+                  <li>3+ years experience with Java development and microservices architecture</li>
+                  <li>Proficiency in Spring Boot, Spring Cloud, and related frameworks</li>
+                  <li>Experience with containerization (Docker) and orchestration (Kubernetes)</li>
+                  <li>Knowledge of messaging systems (Kafka, RabbitMQ) and databases (SQL, NoSQL)</li>
+                  <li>Understanding of CI/CD pipelines and DevOps practices</li>
+                  <li>Strong problem-solving skills and attention to detail</li>
+                </ul>
+                
+                <div class="text-right mt-4">
+                  <a href="#application-form" class="btn btn-primary">Apply Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-40"></div>
+
+    <!-- Application Form -->
+    <div class="row" id="application-form">
+      <div class="col-md-12">
+        <h3 class="column-title">Apply for a Position</h3>
+        <form id="job-application-form" action="index.html" method="post" role="form" enctype="multipart/form-data">
+          <div class="error-container"></div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input class="form-control" name="name" id="name" placeholder="" type="text" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" name="email" id="email" placeholder="" type="email" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Phone</label>
+                <input class="form-control" name="phone" id="phone" placeholder="" type="tel" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Position Applying For</label>
+                <select class="form-control" name="position" id="position" required>
+                  <option value="">Select Position</option>
+                  <option value="Site Engineer">Site Engineer</option>
+                  <option value="Structural Engineer">Structural Engineer</option>
+                  <option value="Software Engineer">Software Engineer (Java Microservices)</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Experience (Years)</label>
+                <input class="form-control" name="experience" id="experience" placeholder="" type="number" min="0" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Resume/CV</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                  <label class="custom-file-label" for="resume">Choose file (PDF, DOC, DOCX)</label>
+                  <small class="form-text text-muted">Max file size: 2MB</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>LinkedIn Profile (Optional)</label>
+                <input class="form-control" name="linkedin" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" type="url">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Cover Letter / Additional Information</label>
+            <textarea class="form-control" name="cover_letter" id="cover_letter" placeholder="" rows="6"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="consent" name="consent" required>
+              <label class="custom-control-label" for="consent">I consent to R K Infra Projects storing and processing my personal data for recruitment purposes.</label>
+            </div>
+          </div>
+          
+          <div class="text-right"><br>
+            <button class="btn btn-primary solid blank" type="submit" id="submit-application">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- Content row -->
+  </div><!-- Container end -->
+</section><!-- Main container end -->
+
+  <footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-4 col-md-6 footer-widget footer-about">
+            <h3 class="widget-title">About Us</h3>
+            <img loading="lazy" class="footer-logo" src="images/footer-logo.png" alt="R K Infra Projects">
+            <p>Pain itself is something to be experienced, for it brings labor and great suffering, but it also has a purpose and consequence.</p>
+            <div class="footer-social">
+              <ul>
+                <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
+                      class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
+                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div><!-- Footer social end -->
+          </div><!-- Col end -->
+
+          <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+            <h3 class="widget-title">Working Hours</h3>
+            <div class="working-hours">
+              We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
+              Hotline and Contact form.
+              <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
+              <br> Saturday: <span class="text-right">12:00 - 15:00</span>
+              <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+            </div>
+          </div><!-- Col end -->
+<!--          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+            <h3 class="widget-title">Services</h3>
+            <ul class="list-arrow">
+              <li><a href="service-single.html">Pre-Construction</a></li>
+              <li><a href="service-single.html">General Contracting</a></li>
+              <li><a href="service-single.html">Construction Management</a></li>
+              <li><a href="service-single.html">Design and Build</a></li>
+              <li><a href="service-single.html">Self-Perform Construction</a></li>
+            </ul>
+          </div>--><!-- Col end -->
+        </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Footer main end -->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <div class="copyright-info text-center">
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved. &copy; R K Infra Projects 2017</span>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="footer-menu text-center">
+              <ul class="list-unstyled mb-0">
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Our people</a></li>
+                <li><a href="faq.html">Faq</a></li>
+                <!-- <li><a href="news-left-sidebar.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div><!-- Row end -->
+
+        <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+          <button class="btn btn-primary" title="Back to Top">
+            <i class="fa fa-angle-double-up"></i>
+          </button>
+        </div>
+
+      </div><!-- Container end -->
+    </div><!-- Copyright end -->
+  </footer><!-- Footer end -->
+
+
+  <!-- Javascript Files
+  ================================================== -->
+
+  <!-- initialize jQuery Library -->
+  <script src="plugins/jQuery/jquery.min.js"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+  <!-- Slick Carousel -->
+  <script src="plugins/slick/slick.min.js"></script>
+  <script src="plugins/slick/slick-animation.min.js"></script>
+  <!-- Color box -->
+  <script src="plugins/colorbox/jquery.colorbox.js"></script>
+  <!-- shuffle -->
+  <script src="plugins/shuffle/shuffle.min.js" defer></script>
+
+  <!-- Template custom -->
+  <script src="js/script.js"></script>
+
+
+    
